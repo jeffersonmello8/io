@@ -64,16 +64,19 @@ class ResidentController {
       return response.status(404).json({ error: 'Resident not found' });
     }
 
-    if (!name) {
-      return response.status(400).json({ error: 'Name is required' });
-    }
+    const requiredFields = ['name', 'apartment', 'building'];
+    let hasMissingField = false;
 
-    if (!apartment) {
-      return response.status(400).json({ error: 'Apartment is required' });
-    }
+    requiredFields.forEach((field) => {
+      if (!request.body[field]) {
+        const errorMessage = `${field} is required`;
+        response.status(400).json({ error: errorMessage });
+        hasMissingField = true;
+      }
+    });
 
-    if (!building) {
-      return response.status(400).json({ error: 'Building is required' });
+    if (hasMissingField) {
+      return;
     }
 
     const residentExistsByAddress = await ResidentsRepository.findByAddress(apartment, building);
