@@ -56,8 +56,6 @@ class ResidentsRepository {
       [id],
     );
 
-    console.log(deleteOp);
-
     return deleteOp;
   }
 }

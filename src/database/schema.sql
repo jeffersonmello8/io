@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS residents (
 
 CREATE TABLE IF NOT EXISTS types (
   id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
-  name VARCHAR NOT NULL
+  description VARCHAR NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS vehicles (
