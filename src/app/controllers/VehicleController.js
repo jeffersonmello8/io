@@ -11,7 +11,7 @@ class VehicleController {
     const { plate } = request.params;
 
     if (!plate) {
-      return response.status(400).json({ error: 'ID is required' });
+      return response.status(400).json({ error: 'Plate is required' });
     }
 
     const regexPlate = /^[a-zA-Z]{3}[0-9]{4}$/;
