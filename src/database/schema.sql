@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS vehicles (
   id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
   plate VARCHAR NOT NULL,
   type_id UUID,
-  phone VARCHAR,
   resident_id UUID,
   FOREIGN KEY(resident_id) REFERENCES residents(id),
   FOREIGN KEY(type_id) REFERENCES types(id)
